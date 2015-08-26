@@ -19,15 +19,16 @@ while 1:
 	#print 'Connected by', addr
 	#while 1:
     	data = conn.recv(1024)
-	print data
 	if data == "1":
 		#print repr(data)
     		if not data: break
 		#finalMessage = "{}".format(data)
    		conn.sendall("Received: Turn on bulb")
 		GPIO.output(19, GPIO.HIGH)
+		print ("Light is on\n")
 	elif data == "0":
 		#finalMessage = "no {}".format(data)
 		conn.sendall("Received: Turn off bulb")
-		GPIO.output(19, GPIO.LOW)	
+		GPIO.output(19, GPIO.LOW)
+		print ("Light is off\n")	
 conn.close()
