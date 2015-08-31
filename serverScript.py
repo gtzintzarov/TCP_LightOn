@@ -3,6 +3,7 @@
 # Echo server program
 import socket
 import RPi.GPIO as GPIO
+import time
 
 GPIO.setmode(GPIO.BOARD)
 
@@ -14,11 +15,33 @@ GPIO.setup(greenPin, GPIO.OUT) #Green
 GPIO.setup(yellowPin, GPIO.OUT) #Yellow
 GPIO.setup(redPin, GPIO.OUT) #Red
 
+
+def startScript():
+	GPIO.output(redPin, GPIO.HIGH)
+	time.sleep(1)
+	GPIO.output(redPin, GPIO.LOW)
+	GPIO.output(yellowPin, GPIO.HIGH)
+	time.sleep(1)
+	GPIO.output(yellowPin, GPIO.LOW)
+	GPIO.output(greenPin, GPIO.HIGH)
+	time.sleep(1)
+	GPIO.output(greenPin, GPIO.LOW)
+	GPIO.output(yellowPin, GPIO.HIGH)
+	time.sleep(1)
+	GPIO.output(yellowPin, GPIO.LOW)
+	GPIO.output(redPin, GPIO.HIGH)
+	time.sleep(1)
+
+
 HOST = ''                 # Symbolic name meaning all available interfaces
 PORT = 50007              # Arbitrary non-privileged port
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.bind((HOST, PORT))
 s.listen(1)
+
+# start script
+startScript()
+
 while 1:
 	conn, addr = s.accept()
 	#print 'Connected by', addr
