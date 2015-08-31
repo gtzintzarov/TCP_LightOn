@@ -6,6 +6,7 @@ import RPi.GPIO as GPIO
 import time
 
 GPIO.setmode(GPIO.BOARD)
+GPIO.setwarnings(False)
 
 greenPin = 36;
 yellowPin = 38;
@@ -18,27 +19,19 @@ GPIO.setup(redPin, GPIO.OUT) #Red
 
 def startScript():
 	GPIO.output(redPin, GPIO.HIGH)
-	time.sleep(0.5)
+	time.sleep(0.3)
 	GPIO.output(redPin, GPIO.LOW)
 	GPIO.output(yellowPin, GPIO.HIGH)
-	time.sleep(0.5)
+	time.sleep(0.3)
 	GPIO.output(yellowPin, GPIO.LOW)
 	GPIO.output(greenPin, GPIO.HIGH)
-	time.sleep(0.5)
+	time.sleep(0.3)
 	GPIO.output(greenPin, GPIO.LOW)
 	GPIO.output(yellowPin, GPIO.HIGH)
-	time.sleep(0.5)
+	time.sleep(0.3)
 	GPIO.output(yellowPin, GPIO.LOW)
 	GPIO.output(redPin, GPIO.HIGH)
-	time.sleep(0.5)
-	GPIO.output(redPin, GPIO.LOW)
-	time.sleep(0.5)
-	GPIO.output(greenPin, GPIO.HIGH)
-	GPIO.output(yellowPin, GPIO.HIGH)
-	GPIO.output(redPin, GPIO.HIGH)
-	time.sleep(0.5)
-	GPIO.output(greenPin, GPIO.LOW)
-	GPIO.output(yellowPin, GPIO.LOW)
+	time.sleep(0.3)
 	GPIO.output(redPin, GPIO.LOW)
 	time.sleep(0.5)
 	GPIO.output(greenPin, GPIO.HIGH)
@@ -48,6 +41,15 @@ def startScript():
 	GPIO.output(greenPin, GPIO.LOW)
 	GPIO.output(yellowPin, GPIO.LOW)
 	GPIO.output(redPin, GPIO.LOW)
+	time.sleep(0.5)
+	GPIO.output(greenPin, GPIO.HIGH)
+	GPIO.output(yellowPin, GPIO.HIGH)
+	GPIO.output(redPin, GPIO.HIGH)
+	time.sleep(0.5)
+	GPIO.output(greenPin, GPIO.LOW)
+	GPIO.output(yellowPin, GPIO.LOW)
+	GPIO.output(redPin, GPIO.LOW)
+
 
 
 HOST = ''                 # Symbolic name meaning all available interfaces
