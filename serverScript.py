@@ -35,6 +35,17 @@ while 1:
 		GPIO.output(yellowPin, GPIO.LOW)
 		GPIO.output(redPin, GPIO.LOW)
 		print ("Green: 0\nYellow: 0\nRed: 0\n")
+
+	elif data == "all_on":
+		#print repr(data)
+   		#	if not data: break
+		#finalMessage = "{}".format(data)
+		conn.sendall("Received: Turn ALL ON")
+		GPIO.output(greenPin, GPIO.HIGH)
+		GPIO.output(yellowPin, GPIO.HIGH)
+		GPIO.output(redPin, GPIO.HIGH)
+		print ("Green: 1\nYellow: 1\nRed: 1\n")
+
     #Turn on/off green light
 	elif data == "green_on":
 		#print repr(data)
@@ -42,12 +53,13 @@ while 1:
 		#finalMessage = "{}".format(data)
 		conn.sendall("Received: Turn Green On")
 		GPIO.output(greenPin, GPIO.HIGH)
-		print ("Green: 1\nYellow: 0\nRed: 0\n")
+		print ("Green: 1\nYellow: *\nRed: *\n")
 	elif data == "green_off":
 		#finalMessage = "no {}".format(data)
 		conn.sendall("Received: Turn Green Off")
 		GPIO.output(greenPin, GPIO.LOW)
-		print ("Green: 0\nYellow: 0\nRed: 0\n")
+		print ("Green: 0\nYellow: *\nRed: *\n")
+
 	#Turn on/off yellow light
 	elif data == "yellow_on":
 		#print repr(data)
@@ -55,12 +67,13 @@ while 1:
 		#finalMessage = "{}".format(data)
 		conn.sendall("Received: Turn Yellow On")
 		GPIO.output(yellowPin, GPIO.HIGH)
-		print ("Green: 0\nYellow: 1\nRed: 0\n")
+		print ("Green: *\nYellow: 1\nRed: *\n")
 	elif data == "yellow_off":
 		#finalMessage = "no {}".format(data)
 		conn.sendall("Received: Turn Yellow Off")
 		GPIO.output(yellowPin, GPIO.LOW)
-		print ("Green: 0\nYellow: 0\nRed: 0\n")	
+		print ("Green: *\nYellow: 0\nRed: *\n")
+
 	#Turn on/off red light
 	elif data == "red_on":
 		#print repr(data)
@@ -68,10 +81,10 @@ while 1:
 		#finalMessage = "{}".format(data)
 		conn.sendall("Received: Turn Red On")
 		GPIO.output(redPin, GPIO.HIGH)
-		print ("Green: 0\nYellow: 0\nRed: 1\n")
+		print ("Green: *\nYellow: *\nRed: 1\n")
 	elif data == "red_off":
 		#finalMessage = "no {}".format(data)
 		conn.sendall("Received: Turn Red Off")
 		GPIO.output(redPin, GPIO.LOW)
-		print ("Green: 0\nYellow: 0\nRed: 0\n")	
+		print ("Green: *\nYellow: *\nRed: 0\n")	
 conn.close()
