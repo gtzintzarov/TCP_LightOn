@@ -18,6 +18,9 @@ GPIO.setup(redPin, GPIO.OUT) #Red
 
 
 def startScript():
+	GPIO.output(greenPin, GPIO.LOW)
+	GPIO.output(yellowPin, GPIO.LOW)
+	GPIO.output(redPin, GPIO.LOW)
 	print("Running start up script...")
 	GPIO.output(redPin, GPIO.HIGH)
 	time.sleep(0.3)
