@@ -4,7 +4,7 @@
 import socket
 import RPi.GPIO as GPIO
 
-GPIO.setmode(GPIO.Board)
+GPIO.setmode(GPIO.BOARD)
 
 greenPin = 36;
 yellowPin = 38;
