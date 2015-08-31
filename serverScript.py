@@ -28,7 +28,7 @@ while 1:
     #Turn ALL off
     if data == "all_off":
 		#print repr(data)
-    		if not data: break
+    	#	if not data: break
 		#finalMessage = "{}".format(data)
    		conn.sendall("Received: Turn ALL OFF")
 		GPIO.output(greenPin, GPIO.LOW)
@@ -39,7 +39,7 @@ while 1:
     #Turn on/off green light
 	elif data == "green_on":
 		#print repr(data)
-    		if not data: break
+    	#	if not data: break
 		#finalMessage = "{}".format(data)
    		conn.sendall("Received: Turn Green On")
 		GPIO.output(greenPin, GPIO.HIGH)
@@ -53,7 +53,7 @@ while 1:
 	#Turn on/off yellow light
 	elif data == "yellow_on":
 		#print repr(data)
-    		if not data: break
+    	#	if not data: break
 		#finalMessage = "{}".format(data)
    		conn.sendall("Received: Turn Yellow On")
 		GPIO.output(yellowPin, GPIO.HIGH)
@@ -67,7 +67,7 @@ while 1:
 	#Turn on/off red light
 	elif data == "red_on":
 		#print repr(data)
-    		if not data: break
+    	#	if not data: break
 		#finalMessage = "{}".format(data)
    		conn.sendall("Received: Turn Red On")
 		GPIO.output(redPin, GPIO.HIGH)
