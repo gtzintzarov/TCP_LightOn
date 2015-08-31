@@ -91,4 +91,5 @@ while 1:
 	elif data == "close":
 		conn.sendall("Connection Closed")
 		conn.close()
+		break
 conn.close()
