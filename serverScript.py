@@ -88,7 +88,7 @@ while 1:
 		GPIO.output(redPin, GPIO.LOW)
 		print ("Green: *\nYellow: *\nRed: 0\n")	
 
-	elif data == "close"
+	elif data == "close":
 		conn.sendall("Connection Closed")
 		conn.close()
 conn.close()
