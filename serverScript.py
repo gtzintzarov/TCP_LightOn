@@ -24,7 +24,7 @@ while 1:
 	#print 'Connected by', addr
 	#while 1:
     	data = conn.recv(1024)
-	if data == "1":
+	if data == "green":
 		#print repr(data)
     		if not data: break
 		#finalMessage = "{}".format(data)
