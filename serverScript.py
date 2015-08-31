@@ -5,9 +5,14 @@ import socket
 import RPi.GPIO as GPIO
 
 GPIO.setmode(GPIO.BCM)
-GPIO.setup(19, GPIO.OUT)
 
+greenPin = 16;
+yellowPin = 20;
+redPin = 21;
 
+GPIO.setup(greenPin, GPIO.OUT) #Green
+GPIO.setup(yellowPin, GPIO.OUT) #Yellow
+GPIO.setup(redPin, GPIO.OUT) #Red
 
 HOST = ''                 # Symbolic name meaning all available interfaces
 PORT = 50007              # Arbitrary non-privileged port
@@ -24,11 +29,11 @@ while 1:
     		if not data: break
 		#finalMessage = "{}".format(data)
    		conn.sendall("Received: Turn on bulb")
-		GPIO.output(19, GPIO.HIGH)
+		GPIO.output(greenPin, GPIO.HIGH)
 		print ("Light is on\n")
 	elif data == "0":
 		#finalMessage = "no {}".format(data)
 		conn.sendall("Received: Turn off bulb")
-		GPIO.output(19, GPIO.LOW)
+		GPIO.output(greenPin, GPIO.LOW)
 		print ("Light is off\n")	
 conn.close()
