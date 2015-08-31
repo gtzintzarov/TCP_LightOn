@@ -24,16 +24,57 @@ while 1:
 	#print 'Connected by', addr
 	#while 1:
     	data = conn.recv(1024)
-	if data == "green":
+
+    #Turn ALL off
+    if data == "all_off":
 		#print repr(data)
     		if not data: break
 		#finalMessage = "{}".format(data)
-   		conn.sendall("Received: Turn on bulb")
-		GPIO.output(greenPin, GPIO.HIGH)
-		print ("Light is on\n")
-	elif data == "0":
-		#finalMessage = "no {}".format(data)
-		conn.sendall("Received: Turn off bulb")
+   		conn.sendall("Received: Turn ALL OFF")
 		GPIO.output(greenPin, GPIO.LOW)
-		print ("Light is off\n")	
+		GPIO.output(yellowPin, GPIO.LOW)
+		GPIO.output(redPin, GPIO.LOW)
+		print ("Green: 0\nYellow: 0\nRed: 0\n")
+
+    #Turn on/off green light
+	elif data == "green_on":
+		#print repr(data)
+    		if not data: break
+		#finalMessage = "{}".format(data)
+   		conn.sendall("Received: Turn Green On")
+		GPIO.output(greenPin, GPIO.HIGH)
+		print ("Green: 1\nYellow: 0\nRed: 0\n")
+	elif data == "green_off":
+		#finalMessage = "no {}".format(data)
+		conn.sendall("Received: Turn Green Off")
+		GPIO.output(greenPin, GPIO.LOW)
+		print ("Green: 0\nYellow: 0\nRed: 0\n")
+
+	#Turn on/off yellow light
+	elif data == "yellow_on":
+		#print repr(data)
+    		if not data: break
+		#finalMessage = "{}".format(data)
+   		conn.sendall("Received: Turn Yellow On")
+		GPIO.output(yellowPin, GPIO.HIGH)
+		print ("Green: 0\nYellow: 1\nRed: 0\n")
+	elif data == "yellow_off":
+		#finalMessage = "no {}".format(data)
+		conn.sendall("Received: Turn Yellow Off")
+		GPIO.output(yellowPin, GPIO.LOW)
+		print ("Green: 0\nYellow: 0\nRed: 0\n")	
+
+	#Turn on/off red light
+	elif data == "red_on":
+		#print repr(data)
+    		if not data: break
+		#finalMessage = "{}".format(data)
+   		conn.sendall("Received: Turn Red On")
+		GPIO.output(redPin, GPIO.HIGH)
+		print ("Green: 0\nYellow: 0\nRed: 1\n")
+	elif data == "red_off":
+		#finalMessage = "no {}".format(data)
+		conn.sendall("Received: Turn Red Off")
+		GPIO.output(redPin, GPIO.LOW)
+		print ("Green: 0\nYellow: 0\nRed: 0\n")	
 conn.close()
