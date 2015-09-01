@@ -136,11 +136,11 @@ try:
 			GPIO.output(redPin, GPIO.LOW)
 			print ("Green: *\nYellow: *\nRed: 0\n")	
 
-		elif data == "close":
-			conn.sendall("Connection Closed")
-			conn.close()
-			break
-	conn.close()
+		#elif data == "close":
+			#conn.sendall("Connection Closed")
+			#conn.close()
+			#break
+	#conn.close()
 
 except KeyboardInterrupt:
 	conn.close()
