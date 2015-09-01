@@ -143,5 +143,6 @@ try:
 	#conn.close()
 
 except KeyboardInterrupt:
-	conn.close()
 	GPIO.cleanup()
+	conn.close()
+	
