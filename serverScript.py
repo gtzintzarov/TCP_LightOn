@@ -4,6 +4,7 @@
 import socket
 import RPi.GPIO as GPIO
 import time
+import SpeakerClass
 
 GPIO.setmode(GPIO.BOARD)
 GPIO.setwarnings(False)
@@ -140,3 +141,7 @@ while 1:
 		conn.close()
 		break
 conn.close()
+
+except KeyboardInterrupt:
+	conn.close()
+	GPIO.cleanup()
