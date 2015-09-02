@@ -3,7 +3,7 @@
 import RPi.GPIO as GPIO
 import time
 
-GPIO.setmode(GPIO.BOARD)
+GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
 
@@ -19,4 +19,4 @@ class Speaker:
 		tempSpeaker = GPIO.PWM(self.pin,frequency)
 		tempSpeaker.start(volume) #50 is max volume
 		time.sleep(duration)	#duration of note, in seconds
-		#tempSpeaker.stop()
+		tempSpeaker.stop()

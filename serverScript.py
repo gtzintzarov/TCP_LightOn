@@ -6,17 +6,18 @@ import RPi.GPIO as GPIO
 import time
 import SpeakerClass
 
-GPIO.setmode(GPIO.BOARD)
+GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
-greenPin = 36
-yellowPin = 38
-redPin = 40
+greenPin = 16
+yellowPin = 20
+redPin = 21
+speakerControllerPin = 18
 
 GPIO.setup(greenPin, GPIO.OUT) #Green
 GPIO.setup(yellowPin, GPIO.OUT) #Yellow
 GPIO.setup(redPin, GPIO.OUT) #Red
-loudDoge = SpeakerClass.Speaker(12)
+loudDoge = SpeakerClass.Speaker(speakerControllerPin)
 
 def startScript():
 	GPIO.output(greenPin, GPIO.LOW)
@@ -55,7 +56,7 @@ def startScript():
 	GPIO.output(yellowPin, GPIO.LOW)
 	GPIO.output(redPin, GPIO.LOW)
 	print("Ready to doge some traffic light signals\n\n")
-	loudDoge.playSound(1, 3, 50)
+	loudDoge.playSound(392, 3, 50)
 
 
 
