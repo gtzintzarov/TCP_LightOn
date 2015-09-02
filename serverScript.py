@@ -58,6 +58,7 @@ def startScript():
 	print("Ready to doge some traffic light signals\n\n")
 	for x in range (0,500):
 		loudDoge.playSound(100+x, .01)
+		print (x)
 
 
 
