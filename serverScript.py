@@ -16,7 +16,7 @@ redPin = 40;
 GPIO.setup(greenPin, GPIO.OUT) #Green
 GPIO.setup(yellowPin, GPIO.OUT) #Yellow
 GPIO.setup(redPin, GPIO.OUT) #Red
-
+loudDoge = Speaker(18)
 
 def startScript():
 	GPIO.output(greenPin, GPIO.LOW)
@@ -55,6 +55,7 @@ def startScript():
 	GPIO.output(yellowPin, GPIO.LOW)
 	GPIO.output(redPin, GPIO.LOW)
 	print("Ready to doge some traffic light signals\n\n")
+	loudDoge.playSound(420, 3, 50)
 
 
 
