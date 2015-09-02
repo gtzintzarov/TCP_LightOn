@@ -16,7 +16,7 @@ redPin = 40;
 GPIO.setup(greenPin, GPIO.OUT) #Green
 GPIO.setup(yellowPin, GPIO.OUT) #Yellow
 GPIO.setup(redPin, GPIO.OUT) #Red
-loudDoge = Speaker(18)
+loudDoge = SpeakerClass.Speaker(18)
 
 def startScript():
 	GPIO.output(greenPin, GPIO.LOW)
