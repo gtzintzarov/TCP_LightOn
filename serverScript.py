@@ -110,7 +110,7 @@ try:
 			conn.sendall("Received: Turn Green On")
 			GPIO.output(greenPin, GPIO.HIGH)
 			print ("Green: 1\nYellow: *\nRed: *\n")
-			loudDoge.playSound(830, .2)
+			loudDoge.playSound(830, .4)
 		elif data == "green_off":
 			#finalMessage = "no {}".format(data)
 			conn.sendall("Received: Turn Green Off")
@@ -126,7 +126,7 @@ try:
 			conn.sendall("Received: Turn Yellow On")
 			GPIO.output(yellowPin, GPIO.HIGH)
 			print ("Green: *\nYellow: 1\nRed: *\n")
-			loudDoge.playSound(587, .2)
+			loudDoge.playSound(587, .4)
 
 		elif data == "yellow_off":
 			#finalMessage = "no {}".format(data)
@@ -142,7 +142,7 @@ try:
 			conn.sendall("Received: Turn Red On")
 			GPIO.output(redPin, GPIO.HIGH)
 			print ("Green: *\nYellow: *\nRed: 1\n")
-			loudDoge.playSound(392, .2)
+			loudDoge.playSound(392, .4)
 
 		elif data == "red_off":
 			#finalMessage = "no {}".format(data)
@@ -161,5 +161,5 @@ except KeyboardInterrupt:
 	GPIO.output(yellowPin, GPIO.LOW)
 	GPIO.output(redPin, GPIO.LOW)
 	GPIO.cleanup()
-	conn.close()
+	#conn.close()
 	
