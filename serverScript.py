@@ -98,6 +98,9 @@ try:
 			shireTrafficLight.redOFF()
 			shireTrafficLight.printStatus()
 
+		elif data == "get_status"
+			shireTrafficLight.printStatus()
+
 		#elif data == "close":
 			#conn.sendall("Connection Closed")
 			#conn.close()
