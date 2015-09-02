@@ -24,7 +24,7 @@ class trafficLight:
 
 		self.startup()
 
-	def startup(self):
+	def startup():
 		self.turnAllOff()
 
 		print("Running start up script...")
