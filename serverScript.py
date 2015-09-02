@@ -156,4 +156,5 @@ except KeyboardInterrupt:
 	GPIO.output(yellowPin, GPIO.LOW)
 	GPIO.output(redPin, GPIO.LOW)
 	GPIO.cleanup()
+	conn.close()
 	
