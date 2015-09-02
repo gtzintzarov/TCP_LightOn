@@ -71,44 +71,44 @@ class trafficLight:
 		for x in range (0,200,10):
 			self.loudDoge.playSound(200+x, .05)
 
-	def greenON():
+	def greenON(self):
 		self.greenLight.on()
 		self.loudDoge.playSound(830, .3)
 		self.greenStatus = True
 
-	def greenOFF():
+	def greenOFF(self):
 		self.greenLight.off()
 		self.greenStatus = False
 
-	def yellowON():
+	def yellowON(self):
 		self.yellowLight.on()
 		self.loudDoge.playSound(587, .3)
 		self.yellowStatus = True
 
-	def yellowOFF():
+	def yellowOFF(self):
 		self.yellowLight.off()
 		self.yellowStatus = False
 
-	def redON():
+	def redON(self):
 		self.redLight.on()
 		self.loudDoge.playSound(392, .3)
 		self.redStatus = True
 
-	def redOFF():
+	def redOFF(self):
 		self.redLight.off()
 		self.redStatus = False
 
-	def turnAllOn():
+	def turnAllOn(self):
 		self.greenON()
 		self.yellowON()
 		self.redON()
 
-	def turnAllOff():
+	def turnAllOff(self):
 		self.greenOFF()
 		self.yellowON()
 		self.redOFF()
 
-	def printStatus():
+	def printStatus(self):
 		print ("Green: {:#d}".format(self.greenStatus))
 		print ("Yellow: {:#d}".format(self.yellowStatus))
 		print ("Red: {:#d}\n".format(self.redStatus))
