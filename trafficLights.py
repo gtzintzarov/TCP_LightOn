@@ -12,10 +12,10 @@ GPIO.setwarnings(False)
 class LED:
 	def __init__(self, _pin):
 		self.pin = _pin
-		GPIO.setup(_pin, GPIO.OUT) #set the pin
+		GPIO.setup(self.pin, GPIO.OUT) #set the pin
 
 	def on(self):
-		GPIO.output(_pin, GPIO.HIGH)
+		GPIO.output(self.pin, GPIO.HIGH)
 
 	def off(self):
-		GPIO.output(_pin, GPIO.LOW)
+		GPIO.output(self.pin, GPIO.LOW)
