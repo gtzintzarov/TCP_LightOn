@@ -116,4 +116,4 @@ class trafficLight:
 		print ("Green: {:#d}".format(self.greenStatus))
 		print ("Yellow: {:#d}".format(self.yellowStatus))
 		print ("Red: {:#d}\n".format(self.redStatus))
-		return ("Green: {:#d}\nYellow: {:#d}\nRed: {:#d}\n".format(self.greenStatus,self.yellowStatus, self.redStatus))
+		return ("{:#d} {:#d} {:#d}".format(self.greenStatus,self.yellowStatus, self.redStatus))
