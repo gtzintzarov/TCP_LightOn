@@ -15,8 +15,8 @@ class Speaker:
 		self.pin = _pin
 		GPIO.setup(_pin, GPIO.OUT) #set the pin
 
-	def playSound(self, frequency, duration, volume):
+	def playSound(self, frequency, duration):
 		tempSpeaker = GPIO.PWM(self.pin,frequency)
-		tempSpeaker.start(volume) #50 is max volume
+		tempSpeaker.start(50) #50 is max volume
 		time.sleep(duration)	#duration of note, in seconds
 		tempSpeaker.stop()
