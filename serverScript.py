@@ -12,16 +12,24 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
 # pin assignment
-greenLight = trafficLights.LED(16)
-yellowLight = trafficLights.LED(20)
-redLight = trafficLights.LED(21)
+greenLight = trafficLights.light(16)
+yellowLight = trafficLights.light(20)
+redLight = trafficLights.light(21)
 loudDoge = SpeakerClass.Speaker(18)
 
+# function definitions
+def turnAllOn():
+	greenLight.on()
+	yellowLight.on()
+	redLight.on()
 
-def startScript():
+def turnAllOff():
 	greenLight.off()
 	yellowLight.off()
 	redLight.off()
+
+def startScript():
+	turnAllOff()
 
 	print("Running start up script...")
 	redLight.on()
@@ -51,24 +59,18 @@ def startScript():
 	redLight.off()
 	
 	time.sleep(0.5)
-	greenLight.on()
-	yellowLight.on()
-	redLight.on()
+	turnAllOn()
 	
 	time.sleep(0.5)
-	greenLight.off()
-	yellowLight.off()
-	redLight.off()
+	turnAllOff()
 	
 	time.sleep(0.5)
-	greenLight.on()
-	yellowLight.on()
-	redLight.on()
+	turnAllOn()
 
 	time.sleep(0.5)
-	greenLight.off()
-	yellowLight.off()
-	redLight.off()
+	turnAllOff()
+
+	# startup tone
 	print("Ready to doge some traffic light signals\n\n")
 	for x in range (0,200,10):
 		loudDoge.playSound(200+x, .05)
@@ -76,13 +78,14 @@ def startScript():
 
 
 
+# bound listening port
 HOST = ''                 # Symbolic name meaning all available interfaces
 PORT = 50007              # Arbitrary non-privileged port
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.bind((HOST, PORT))
 s.listen(3)
 
-# start script
+# start main script
 startScript()
 try:
 	while 1:
@@ -97,18 +100,16 @@ try:
 	   		#	if not data: break
 			#finalMessage = "{}".format(data)
 			conn.sendall("Received: Turn ALL OFF")
-			GPIO.output(greenPin, GPIO.LOW)
-			GPIO.output(yellowPin, GPIO.LOW)
-			GPIO.output(redPin, GPIO.LOW)
+			turnAllOff()
 			print ("Green: 0\nYellow: 0\nRed: 0\n")
+
+		#Turn ALL on
 		elif data == "all_on":
 			#print repr(data)
 	   		#	if not data: break
 			#finalMessage = "{}".format(data)
 			conn.sendall("Received: Turn ALL ON")
-			GPIO.output(greenPin, GPIO.HIGH)
-			GPIO.output(yellowPin, GPIO.HIGH)
-			GPIO.output(redPin, GPIO.HIGH)
+			turnAllOn()
 			print ("Green: 1\nYellow: 1\nRed: 1\n")
 
 	    #Turn on/off green light
@@ -117,13 +118,14 @@ try:
 	    	#	if not data: break
 			#finalMessage = "{}".format(data)
 			conn.sendall("Received: Turn Green On")
-			GPIO.output(greenPin, GPIO.HIGH)
+			greenLight.on()
 			print ("Green: 1\nYellow: *\nRed: *\n")
 			loudDoge.playSound(830, .3)
+
 		elif data == "green_off":
 			#finalMessage = "no {}".format(data)
 			conn.sendall("Received: Turn Green Off")
-			GPIO.output(greenPin, GPIO.LOW)
+			greenLight.off()
 			print ("Green: 0\nYellow: *\nRed: *\n")
 			
 
@@ -133,14 +135,14 @@ try:
 	    	#	if not data: break
 			#finalMessage = "{}".format(data)
 			conn.sendall("Received: Turn Yellow On")
-			GPIO.output(yellowPin, GPIO.HIGH)
+			yellowLight.on()
 			print ("Green: *\nYellow: 1\nRed: *\n")
 			loudDoge.playSound(587, .3)
 
 		elif data == "yellow_off":
 			#finalMessage = "no {}".format(data)
 			conn.sendall("Received: Turn Yellow Off")
-			GPIO.output(yellowPin, GPIO.LOW)
+			yellowLight.off()
 			print ("Green: *\nYellow: 0\nRed: *\n")
 
 		#Turn on/off red light
@@ -149,14 +151,14 @@ try:
 	    	#	if not data: break
 			#finalMessage = "{}".format(data)
 			conn.sendall("Received: Turn Red On")
-			GPIO.output(redPin, GPIO.HIGH)
+			redLight.on()
 			print ("Green: *\nYellow: *\nRed: 1\n")
 			loudDoge.playSound(392, .3)
 
 		elif data == "red_off":
 			#finalMessage = "no {}".format(data)
 			conn.sendall("Received: Turn Red Off")
-			GPIO.output(redPin, GPIO.LOW)
+			redLight.off()
 			print ("Green: *\nYellow: *\nRed: 0\n")	
 
 		#elif data == "close":
@@ -166,9 +168,7 @@ try:
 	#conn.close()
 
 except KeyboardInterrupt:
-	GPIO.output(greenPin, GPIO.LOW)
-	GPIO.output(yellowPin, GPIO.LOW)
-	GPIO.output(redPin, GPIO.LOW)
+	turnAllOff()
 	GPIO.cleanup()
 	#conn.close()
 	

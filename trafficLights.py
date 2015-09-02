@@ -9,7 +9,7 @@ GPIO.setwarnings(False)
 
 
 # This creates the speaker class
-class LED:
+class light:
 	def __init__(self, _pin):
 		self.pin = _pin
 		GPIO.setup(self.pin, GPIO.OUT) #set the pin
