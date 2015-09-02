@@ -71,7 +71,7 @@ try:
 			#print repr(data)
 	    	#	if not data: break
 			#finalMessage = "{}".format(data)
-			conn.sendshireTrafficLightall("Received: Turn Yellow On")
+			conn.sendall("Received: Turn Yellow On")
 			shireTrafficLight.yellowON()
 			shireTrafficLight.printStatus()
 			
