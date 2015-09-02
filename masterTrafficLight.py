@@ -28,80 +28,83 @@ class trafficLight:
 		self.turnAllOff()
 
 		print("Running start up script...")
-		self.redLight.on()
-		self.loudDoge.playSound(392, .4)
+		self.redON()
 		
 		#time.sleep(0.3)
-		self.redLight.off()
-		self.yellowLight.on()
-		self.loudDoge.playSound(587, .4)
+		self.redOFF()
+		self.yellowON()
 		
 		#time.sleep(0.3)
-		self.yellowLight.off()
-		self.greenLight.on()
-		self.loudDoge.playSound(830, .4)
+		self.yellowOFF()
+		self.greenON()
 		
 		#time.sleep(0.3)
-		self.greenLight.off()
-		self.yellowLight.on()
-		self.loudDoge.playSound(587, .4)
+		self.greenOFF()
+		self.yellowON()
 		
 		#time.sleep(0.3)
-		self.yellowLight.off()
-		self.redLight.on()
-		self.loudDoge.playSound(392, .4)
+		self.yellowOFF()
+		self.redON()
 		
 		#time.sleep(0.3)
-		self.redLight.off()
+		self.redOFF()
 		
 		time.sleep(0.5)
-		self.turnAllOn()
+		self.turnAllOn(0)
 		
 		time.sleep(0.5)
-		self.turnAllOff()
+		self.turnAllOff(0)
 		
 		time.sleep(0.5)
-		self.turnAllOn()
+		self.turnAllOn(0)
 
 		time.sleep(0.5)
-		self.turnAllOff()
+		self.turnAllOff(0)
 
 		# startup tone
 		print("Ready to doge some traffic light signals\n\n")
 		for x in range (0,200,10):
 			self.loudDoge.playSound(200+x, .05)
 
-	def greenON(self):
+	def greenON(self, sound = 1):
 		self.greenLight.on()
-		self.loudDoge.playSound(830, .3)
 		self.greenStatus = True
+		if sound == 1:
+			self.loudDoge.playSound(830, .3)
 
 	def greenOFF(self):
 		self.greenLight.off()
 		self.greenStatus = False
 
-	def yellowON(self):
+	def yellowON(self , sound = 1):
 		self.yellowLight.on()
-		self.loudDoge.playSound(587, .3)
 		self.yellowStatus = True
+		if sound == 1:
+			self.loudDoge.playSound(587, .3)
 
 	def yellowOFF(self):
 		self.yellowLight.off()
 		self.yellowStatus = False
 
-	def redON(self):
+	def redON(self, sound = 1):
 		self.redLight.on()
-		self.loudDoge.playSound(392, .3)
 		self.redStatus = True
+		if sound == 1:
+			self.loudDoge.playSound(392, .3)
 
 	def redOFF(self):
 		self.redLight.off()
 		self.redStatus = False
 
-	def turnAllOn(self):
-		self.greenON()
-		self.yellowON()
-		self.redON()
+	def turnAllOn(self, sound = 1):
+		if sound == 1:
+			self.greenON(1)
+			self.yellowON(1)
+			self.redON(1)
+		else
+			self.greenON(0)
+			self.yellowON(0)
+			self.redON(0)
 
 	def turnAllOff(self):
 		self.greenOFF()
