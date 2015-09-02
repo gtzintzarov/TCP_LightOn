@@ -15,10 +15,6 @@ GPIO.setwarnings(False)
 # pin assignment
 shireTrafficLight = masterTrafficLight.trafficLight(16,20,21,18)
 
-	
-
-
-
 
 # bound listening port
 HOST = ''                 # Symbolic name meaning all available interfaces
@@ -84,7 +80,7 @@ try:
 			#finalMessage = "no {}".format(data)
 			conn.sendall("Received: Turn Yellow Off")
 			shireTrafficLight.yellowOFF()
-			shireTrafficLight.printStatus
+			shireTrafficLight.printStatus()
 
 		#Turn on/off red light
 		elif data == "red_on":
