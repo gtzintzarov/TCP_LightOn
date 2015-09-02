@@ -12,16 +12,15 @@ import masterTrafficLight
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
-# pin assignment
-shireTrafficLight = masterTrafficLight.trafficLight(16,20,21,18)
-
-
 # bound listening port
 HOST = ''                 # Symbolic name meaning all available interfaces
 PORT = 50007              # Arbitrary non-privileged port
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.bind((HOST, PORT))
 s.listen(3)
+
+# pin assignment
+shireTrafficLight = masterTrafficLight.trafficLight(16,20,21,18)
 
 # start main script
 try:
