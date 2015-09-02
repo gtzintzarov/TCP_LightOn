@@ -54,13 +54,13 @@ class trafficLight:
 		self.turnAllOn(0)
 		
 		time.sleep(0.5)
-		self.turnAllOff(0)
+		self.turnAllOff()
 		
 		time.sleep(0.5)
 		self.turnAllOn(0)
 
 		time.sleep(0.5)
-		self.turnAllOff(0)
+		self.turnAllOff()
 
 		# startup tone
 		print("Ready to doge some traffic light signals\n\n")
