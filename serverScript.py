@@ -100,7 +100,7 @@ try:
 
 		elif data == "get_status":
 			conn.sendall(shireTrafficLight.printStatus())
-			shireTrafficLight.printStatus()
+			#shireTrafficLight.printStatus()
 
 		#elif data == "close":
 			#conn.sendall("Connection Closed")

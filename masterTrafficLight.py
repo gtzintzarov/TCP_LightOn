@@ -113,7 +113,7 @@ class trafficLight:
 		self.redOFF()
 
 	def printStatus(self):
-		print ("Green: {:#d}".format(self.greenStatus))
-		print ("Yellow: {:#d}".format(self.yellowStatus))
-		print ("Red: {:#d}\n".format(self.redStatus))
+		#print ("Green: {:#d}".format(self.greenStatus))
+		#print ("Yellow: {:#d}".format(self.yellowStatus))
+		#print ("Red: {:#d}\n".format(self.redStatus))
 		return ("{:#d} {:#d} {:#d}".format(self.greenStatus,self.yellowStatus, self.redStatus))
