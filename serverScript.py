@@ -55,7 +55,7 @@ def startScript():
 	GPIO.output(yellowPin, GPIO.LOW)
 	GPIO.output(redPin, GPIO.LOW)
 	print("Ready to doge some traffic light signals\n\n")
-	loudDoge.playSound(420, 3, 50)
+	loudDoge.playSound(1, 3, 50)
 
 
 
