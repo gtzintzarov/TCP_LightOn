@@ -101,7 +101,7 @@ class trafficLight:
 			self.greenON(1)
 			self.yellowON(1)
 			self.redON(1)
-		else
+		else:
 			self.greenON(0)
 			self.yellowON(0)
 			self.redON(0)
