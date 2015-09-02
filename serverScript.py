@@ -5,64 +5,73 @@ import socket
 import RPi.GPIO as GPIO
 import time
 import SpeakerClass
+import trafficLights
 
+# set up the raspberry pi 2 board
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
-greenPin = 16
-yellowPin = 20
-redPin = 21
-speakerControllerPin = 18
+# pin assignment
+greenLight = trafficLights.LED(16)
+yellowLight = trafficLights.LED(20)
+redLight = trafficLights.LED(21)
+loudDoge = SpeakerClass.Speaker(18)
 
-GPIO.setup(greenPin, GPIO.OUT) #Green
-GPIO.setup(yellowPin, GPIO.OUT) #Yellow
-GPIO.setup(redPin, GPIO.OUT) #Red
-loudDoge = SpeakerClass.Speaker(speakerControllerPin)
 
 def startScript():
-	GPIO.output(greenPin, GPIO.LOW)
-	GPIO.output(yellowPin, GPIO.LOW)
-	GPIO.output(redPin, GPIO.LOW)
+	greenLight.off()
+	yellowLight.off()
+	redLight.off()
+
 	print("Running start up script...")
-	GPIO.output(redPin, GPIO.HIGH)
+	redLight.on()
 	loudDoge.playSound(392, .4)
+	
 	#time.sleep(0.3)
-	GPIO.output(redPin, GPIO.LOW)
-	GPIO.output(yellowPin, GPIO.HIGH)
+	redLight.off()
+	yellowLight.on()
 	loudDoge.playSound(587, .4)
+	
 	#time.sleep(0.3)
-	GPIO.output(yellowPin, GPIO.LOW)
-	GPIO.output(greenPin, GPIO.HIGH)
+	yellowLight.off()
+	greenLight.on()
 	loudDoge.playSound(830, .4)
+	
 	#time.sleep(0.3)
-	GPIO.output(greenPin, GPIO.LOW)
-	GPIO.output(yellowPin, GPIO.HIGH)
+	greenLight.off()
+	yellowLight.on()
 	loudDoge.playSound(587, .4)
+	
 	#time.sleep(0.3)
-	GPIO.output(yellowPin, GPIO.LOW)
-	GPIO.output(redPin, GPIO.HIGH)
+	yellowLight.off()
+	redLight.on()
 	loudDoge.playSound(392, .4)
+	
 	#time.sleep(0.3)
-	GPIO.output(redPin, GPIO.LOW)
+	redLight.off()
+	
 	time.sleep(0.5)
-	GPIO.output(greenPin, GPIO.HIGH)
-	GPIO.output(yellowPin, GPIO.HIGH)
-	GPIO.output(redPin, GPIO.HIGH)
+	greenLight.on()
+	yellowLight.on()
+	redLight.on()
+	
 	time.sleep(0.5)
-	GPIO.output(greenPin, GPIO.LOW)
-	GPIO.output(yellowPin, GPIO.LOW)
-	GPIO.output(redPin, GPIO.LOW)
+	greenLight.off()
+	yellowLight.off()
+	redLight.off()
+	
 	time.sleep(0.5)
-	GPIO.output(greenPin, GPIO.HIGH)
-	GPIO.output(yellowPin, GPIO.HIGH)
-	GPIO.output(redPin, GPIO.HIGH)
+	greenLight.on()
+	yellowLight.on()
+	redLight.on()
+
 	time.sleep(0.5)
-	GPIO.output(greenPin, GPIO.LOW)
-	GPIO.output(yellowPin, GPIO.LOW)
-	GPIO.output(redPin, GPIO.LOW)
+	greenLight.off()
+	yellowLight.off()
+	redLight.off()
 	print("Ready to doge some traffic light signals\n\n")
-	for x in range (0,200,3):
-		loudDoge.playSound(100+x, .05)
+	for x in range (0,200,10):
+		loudDoge.playSound(200+x, .05)
 
 
 
@@ -71,7 +80,7 @@ HOST = ''                 # Symbolic name meaning all available interfaces
 PORT = 50007              # Arbitrary non-privileged port
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.bind((HOST, PORT))
-s.listen(1)
+s.listen(3)
 
 # start script
 startScript()
