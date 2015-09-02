@@ -56,7 +56,7 @@ def startScript():
 	GPIO.output(yellowPin, GPIO.LOW)
 	GPIO.output(redPin, GPIO.LOW)
 	print("Ready to doge some traffic light signals\n\n")
-	for x in range (0,500,3):
+	for x in range (0,200,3):
 		loudDoge.playSound(100+x, .05)
 
 
