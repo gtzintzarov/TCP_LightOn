@@ -3,6 +3,7 @@
 import RPi.GPIO as GPIO
 import trafficLights
 import SpeakerClass
+import time
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
