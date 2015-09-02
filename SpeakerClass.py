@@ -12,7 +12,7 @@ GPIO.setwarnings(False)
 # This creates the speaker class
 class Speaker:
 	def __init__(self, _pin):
-		#self.pin = _pin;
+		self.pin = _pin
 		GPIO.setup(_pin, GPIO.OUT) #set the pin
 
 	def playSound(self, frequency, duration, volume):
