@@ -109,7 +109,7 @@ class trafficLight:
 
 	def turnAllOff(self):
 		self.greenOFF()
-		self.yellowON()
+		self.yellowOFF()
 		self.redOFF()
 
 	def printStatus(self):
