@@ -13,7 +13,7 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
 # pin assignment
-shireTrafficLight = masterTrafficLight(16,20,21,18)
+shireTrafficLight = masterTrafficLight.trafficLight(16,20,21,18)
 
 	
 
