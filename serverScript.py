@@ -9,9 +9,9 @@ import SpeakerClass
 GPIO.setmode(GPIO.BOARD)
 GPIO.setwarnings(False)
 
-greenPin = 36;
-yellowPin = 38;
-redPin = 40;
+greenPin = 36
+yellowPin = 38
+redPin = 40
 
 GPIO.setup(greenPin, GPIO.OUT) #Green
 GPIO.setup(yellowPin, GPIO.OUT) #Yellow
