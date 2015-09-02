@@ -98,7 +98,7 @@ try:
 			shireTrafficLight.redOFF()
 			shireTrafficLight.printStatus()
 
-		elif data == "get_status"
+		elif data == "get_status":
 			conn.sendall(shireTrafficLight.printStatus())
 			shireTrafficLight.printStatus()
 
