@@ -21,13 +21,13 @@ s.listen(3)
 
 # pin assignment
 shireTrafficLight = masterTrafficLight.trafficLight(16,20,21,18)
-GPIO.setup(12, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+GPIO.setup(23, GPIO.IN)
 
 # setup interupts
 def switchAllOn(channel):
 	masterTrafficLight.turnAllOn()
 
-GPIO.add_event_detect(12, GPIO.RISING, callback=switchAllOn)
+GPIO.add_event_detect(23, GPIO.RISING, callback=switchAllOn)
 
 # start main script
 try:
