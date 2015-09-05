@@ -30,7 +30,7 @@ def switchAllOn(channel):
 shireTrafficLight = masterTrafficLight.trafficLight(16,20,21,18)
 GPIO.setup(12, GPIO.IN)
 
-GPIO.add_event_detect(12, GPIO.RISING, callback=switchAllOn, bouncetime = 500)
+GPIO.add_event_detect(12, GPIO.FALLING, callback=switchAllOn, bouncetime = 500)
 
 # start main script
 try:
