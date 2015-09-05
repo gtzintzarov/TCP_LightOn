@@ -25,10 +25,11 @@ class trafficLight:
 
 		self.startup()
 
-	def startup(self):
+	def startup(self, starting=1):
 		self.turnAllOff()
 
-		print("Running start up script...")
+		if starting == 1:
+			print("Running start up script...")
 		self.redON()
 		
 		#time.sleep(0.3)
@@ -63,9 +64,11 @@ class trafficLight:
 		self.turnAllOff()
 
 		# startup tone
-		print("Ready to doge some traffic light signals\n\n")
+		if starting == 1:
+			print("Ready to doge some traffic light signals\n\n")
 		for x in range (0,200,6):
 			self.loudDoge.playSound(200+x, .05)
+		
 
 	def greenON(self, sound = 1):
 		self.greenLight.on()

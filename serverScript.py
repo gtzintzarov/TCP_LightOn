@@ -33,27 +33,34 @@ def buttonRedOn(channel):
 	shireTrafficLight.turnAllOff()
 	shireTrafficLight.redON()
 	shireTrafficLight.printStatus()
+def startupButton(channel):
+	shireTrafficLight.turnAllOff()
+	shireTrafficLight.startup()
+	shireTrafficLight.printStatus()
 
 
 # pin assignment
-phyGreenOnpin = 12
+phyGreenPin = 12
 TCP_Green = 16
 phyYellowPin = 23
 TCP_Yellow = 20
 phyRedPin = 24
 TCP_Red = 21
 speakerPin = 18
+reset_startupScript = 26
 
 #Instantiations and pin set up
 shireTrafficLight = masterTrafficLight.trafficLight(TCP_Green,TCP_Yellow,TCP_Red,speakerPin)
-GPIO.setup(phyGreenOnpin, GPIO.IN)
+GPIO.setup(phyGreenPin, GPIO.IN)
 GPIO.setup(phyYellowPin, GPIO.IN)
 GPIO.setup(phyRedPin, GPIO.IN)
+GPIO.setup(reset_startupScript, GPIO.IN)
 
 # event handling
-GPIO.add_event_detect(12, GPIO.FALLING, callback=buttonGreenOn, bouncetime = 500)
-GPIO.add_event_detect(23, GPIO.FALLING, callback=buttonYellowOn, bouncetime = 500)
-GPIO.add_event_detect(24, GPIO.FALLING, callback=buttonRedOn, bouncetime = 500)
+GPIO.add_event_detect(phyGreenPin, GPIO.FALLING, callback=buttonGreenOn, bouncetime = 500)
+GPIO.add_event_detect(phyYellowPin, GPIO.FALLING, callback=buttonYellowOn, bouncetime = 500)
+GPIO.add_event_detect(phyRedPin, GPIO.FALLING, callback=buttonRedOn, bouncetime = 500)
+GPIO.add_event_detect(reset_startupScript, GPIO.FALLING, callback=buttonRedOn, bouncetime = 500)
 
 # start main script
 try:
