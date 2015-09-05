@@ -51,9 +51,9 @@ GPIO.setup(phyYellowPin, GPIO.IN)
 GPIO.setup(phyRedPin, GPIO.IN)
 
 # event handling
-GPIO.add_event_detect(12, GPIO.FALLING, callback=dogeInterrupts.interrupts.buttonGreenOn, bouncetime = 500)
-GPIO.add_event_detect(23, GPIO.FALLING, callback=dogeInterrupts.interrupts.buttonYellowOn, bouncetime = 500)
-GPIO.add_event_detect(24, GPIO.FALLING, callback=dogeInterrupts.interrupts.buttonRedOn, bouncetime = 500)
+GPIO.add_event_detect(12, GPIO.FALLING, callback=buttonGreenOn, bouncetime = 500)
+GPIO.add_event_detect(23, GPIO.FALLING, callback=buttonYellowOn, bouncetime = 500)
+GPIO.add_event_detect(24, GPIO.FALLING, callback=buttonRedOn, bouncetime = 500)
 
 # start main script
 try:
