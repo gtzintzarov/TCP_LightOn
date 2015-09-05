@@ -7,7 +7,7 @@ import time
 import SpeakerClass
 import trafficLights
 import masterTrafficLight
-from dogeInterrupts import *
+import dogeInterrupts #import *
 
 # set up the raspberry pi 2 board
 GPIO.setmode(GPIO.BCM)
@@ -52,9 +52,9 @@ GPIO.setup(phyYellowPin, GPIO.IN)
 GPIO.setup(phyRedPin, GPIO.IN)
 
 # event handling
-GPIO.add_event_detect(12, GPIO.FALLING, callback=buttonGreenOn, bouncetime = 500)
-GPIO.add_event_detect(23, GPIO.FALLING, callback=buttonYellowOn, bouncetime = 500)
-GPIO.add_event_detect(24, GPIO.FALLING, callback=buttonRedOn, bouncetime = 500)
+GPIO.add_event_detect(12, GPIO.FALLING, callback=dogeInterrupts.buttonGreenOn, bouncetime = 500)
+GPIO.add_event_detect(23, GPIO.FALLING, callback=dogeInterrupts.buttonYellowOn, bouncetime = 500)
+GPIO.add_event_detect(24, GPIO.FALLING, callback=dogeInterrupts.buttonRedOn, bouncetime = 500)
 
 # start main script
 try:
