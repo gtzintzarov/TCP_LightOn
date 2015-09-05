@@ -23,17 +23,16 @@ s.listen(3)
 shireTrafficLight = masterTrafficLight.trafficLight(16,20,21,18)
 GPIO.setup(12, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
+# setup interupts
+def switchAllOn(channel)
+	masterTrafficLight.turnAllOn()
+
+GPIO.add_event_detect(12, GPIO.RISING, callback=switchAllOn)
+
 # start main script
 try:
 	while 1:
 		conn, addr = s.accept()
-
-		#manual input
-		input_state = GPIO.input(12)
-		if input_state:
-			shireTrafficLight.turnAllOn()
-		else:
-			shireTrafficLight.turnAllOff()
 		#print 'Connected by', addr
 		#while 1:
 		data = conn.recv(1024)
