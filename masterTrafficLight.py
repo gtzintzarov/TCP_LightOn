@@ -64,7 +64,7 @@ class trafficLight:
 
 		# startup tone
 		print("Ready to doge some traffic light signals\n\n")
-		for x in range (0,200,10):
+		for x in range (0,200,6):
 			self.loudDoge.playSound(200+x, .05)
 
 	def greenON(self, sound = 1):
