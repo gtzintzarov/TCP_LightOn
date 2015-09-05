@@ -60,7 +60,7 @@ GPIO.setup(reset_startupScript, GPIO.IN)
 GPIO.add_event_detect(phyGreenPin, GPIO.FALLING, callback=buttonGreenOn, bouncetime = 500)
 GPIO.add_event_detect(phyYellowPin, GPIO.FALLING, callback=buttonYellowOn, bouncetime = 500)
 GPIO.add_event_detect(phyRedPin, GPIO.FALLING, callback=buttonRedOn, bouncetime = 500)
-GPIO.add_event_detect(reset_startupScript, GPIO.FALLING, callback=buttonRedOn, bouncetime = 500)
+GPIO.add_event_detect(reset_startupScript, GPIO.FALLING, callback=startupButton, bouncetime = 500)
 
 # start main script
 try:
