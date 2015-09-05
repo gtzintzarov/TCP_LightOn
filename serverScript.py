@@ -24,7 +24,7 @@ shireTrafficLight = masterTrafficLight.trafficLight(16,20,21,18)
 GPIO.setup(12, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
 # setup interupts
-def switchAllOn(channel)
+def switchAllOn(channel):
 	masterTrafficLight.turnAllOn()
 
 GPIO.add_event_detect(12, GPIO.RISING, callback=switchAllOn)
