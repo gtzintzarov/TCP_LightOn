@@ -35,7 +35,7 @@ def buttonRedOn(channel):
 	shireTrafficLight.printStatus()
 def startupButton(channel):
 	shireTrafficLight.turnAllOff()
-	shireTrafficLight.startup()
+	shireTrafficLight.startup(0)
 	shireTrafficLight.printStatus()
 
 
