@@ -23,7 +23,7 @@ s.listen(3)
 # setup interupts
 def switchAllOn(channel):
 	print "Hi"
-	shireTrafficLight.turnAllOn()
+	shireTrafficLight.turnAllOn(0)
 
 
 # pin assignment
