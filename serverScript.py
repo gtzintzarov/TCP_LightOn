@@ -19,15 +19,17 @@ s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.bind((HOST, PORT))
 s.listen(3)
 
-# pin assignment
-shireTrafficLight = masterTrafficLight.trafficLight(16,20,21,18)
-GPIO.setup(23, GPIO.IN)
 
 # setup interupts
 def switchAllOn(channel):
 	masterTrafficLight.turnAllOn()
 
-GPIO.add_event_detect(23, GPIO.RISING, callback=switchAllOn)
+
+# pin assignment
+shireTrafficLight = masterTrafficLight.trafficLight(16,20,21,18)
+GPIO.setup(12, GPIO.IN)
+
+GPIO.add_event_detect(12, GPIO.RISING, callback=switchAllOn)
 
 # start main script
 try:
