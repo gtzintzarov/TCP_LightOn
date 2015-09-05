@@ -36,11 +36,21 @@ def buttonRedOn(channel):
 
 
 # pin assignment
-shireTrafficLight = masterTrafficLight.trafficLight(16,20,21,18)
-GPIO.setup(12, GPIO.IN)
-GPIO.setup(23, GPIO.IN)
-GPIO.setup(24, GPIO.IN)
+phyGreenOnpin = 12
+TCP_Green = 16
+phyYellowPin = 23
+TCP_Yellow = 20
+phyRedPin = 24
+TCP_Red = 21
+speakerPin = 18
 
+#Instantiations and pin set up
+shireTrafficLight = masterTrafficLight.trafficLight(TCP_Green,TCP_Yellow,TCP_Red,speakerPin)
+GPIO.setup(phyGreenOnpin, GPIO.IN)
+GPIO.setup(phyYellowPin, GPIO.IN)
+GPIO.setup(phyRedPin, GPIO.IN)
+
+# event handling
 GPIO.add_event_detect(12, GPIO.FALLING, callback=buttonGreenOn, bouncetime = 500)
 GPIO.add_event_detect(23, GPIO.FALLING, callback=buttonYellowOn, bouncetime = 500)
 GPIO.add_event_detect(24, GPIO.FALLING, callback=buttonRedOn, bouncetime = 500)
