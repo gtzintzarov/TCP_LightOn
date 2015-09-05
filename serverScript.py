@@ -7,7 +7,6 @@ import time
 import SpeakerClass
 import trafficLights
 import masterTrafficLight
-import dogeInterrupts
 
 # set up the raspberry pi 2 board
 GPIO.setmode(GPIO.BCM)
@@ -22,18 +21,18 @@ s.listen(3)
 
 
 # setup interupts
-#def buttonGreenOn(channel):
-#	shireTrafficLight.turnAllOff()
-#	shireTrafficLight.greenON()
-#	shireTrafficLight.printStatus()
-#def buttonYellowOn(channel):
-#	shireTrafficLight.turnAllOff()
-#	shireTrafficLight.yellowON()
-#	shireTrafficLight.printStatus()
-#def buttonRedOn(channel):
-#	shireTrafficLight.turnAllOff()
-#	shireTrafficLight.redON()
-#	shireTrafficLight.printStatus()
+def buttonGreenOn(channel):
+	shireTrafficLight.turnAllOff()
+	shireTrafficLight.greenON()
+	shireTrafficLight.printStatus()
+def buttonYellowOn(channel):
+	shireTrafficLight.turnAllOff()
+	shireTrafficLight.yellowON()
+	shireTrafficLight.printStatus()
+def buttonRedOn(channel):
+	shireTrafficLight.turnAllOff()
+	shireTrafficLight.redON()
+	shireTrafficLight.printStatus()
 
 
 # pin assignment
