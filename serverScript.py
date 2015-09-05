@@ -21,18 +21,29 @@ s.listen(3)
 
 
 # setup interupts
-def switchAllOn(channel):
-	print "Hi"
+def buttonGreenOn(channel):
 	shireTrafficLight.turnAllOff()
 	shireTrafficLight.greenON()
+	shireTrafficLight.printStatus()
+def buttonYellowOn(channel):
+	shireTrafficLight.turnAllOff()
+	shireTrafficLight.yellowON()
+	shireTrafficLight.printStatus()
+def buttonRedOn(channel):
+	shireTrafficLight.turnAllOff()
+	shireTrafficLight.redON()
 	shireTrafficLight.printStatus()
 
 
 # pin assignment
 shireTrafficLight = masterTrafficLight.trafficLight(16,20,21,18)
 GPIO.setup(12, GPIO.IN)
+GPIO.setup(23, GPIO.IN)
+GPIO.setup(24, GPIO.IN)
 
-GPIO.add_event_detect(12, GPIO.FALLING, callback=switchAllOn, bouncetime = 500)
+GPIO.add_event_detect(12, GPIO.FALLING, callback=buttonGreenOn, bouncetime = 500)
+GPIO.add_event_detect(23, GPIO.FALLING, callback=buttonYellowOn, bouncetime = 500)
+GPIO.add_event_detect(24, GPIO.FALLING, callback=buttonRedOn, bouncetime = 500)
 
 # start main script
 try:
