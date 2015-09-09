@@ -1,5 +1,8 @@
 
 
+
+
+
 $(document).ready(function () {
     
     // red light click listener
@@ -43,6 +46,16 @@ $(document).ready(function () {
     var turnOnRed = function () {
         $("#red-light").addClass("red-on");
         $("#red-light").removeClass("red-off");
+        
+        $.ajax({
+            url: "/RedOn_client.py",
+            success: function(response) {
+                console.log(response);   
+            },
+            error: function(response) {
+                alert("Error: " + response);
+            }
+        });
     };
     
     var turnOffRed = function () {
@@ -63,11 +76,31 @@ $(document).ready(function () {
     var turnOnGreen = function () {
         $("#green-light").addClass("green-on");
         $("#green-light").removeClass("green-off");
+        
+        $.ajax({
+            url: "GreenOn_client.py",
+            success: function(response) {
+                console.log(response);   
+            },
+            error: function(response) {
+                alert("Error: " + response);
+            }
+        });
     };
     
     var turnOffGreen = function () {
         $("#green-light").removeClass("green-on green-off");
         $("#green-light").addClass("green-off");
+        
+        $.ajax({
+            url: "GreenOff_client.py",
+            success: function(response) {
+                console.log(response);   
+            },
+            error: function(response) {
+                alert("Error: " + response);
+            }
+        });
     };
 
     

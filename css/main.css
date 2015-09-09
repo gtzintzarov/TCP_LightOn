@@ -1,13 +1,12 @@
 html,
 body {
-  background: #777777 url(/assets/img/asfalt-light.png) top left repeat;
+  background: #686873 url(/assets/img/asfalt-light.png) top left repeat;
 }
 #traffic-light {
   min-height: 80vh;
   width: 34.4vh;
   margin: 5vh auto 10vh auto;
   border: 5px solid #ffbf0b;
-  border-radius: 4%;
   background: -webkit-radial-gradient(#ffe7a4, #ffbf0b);
   /* Safari 5.1 to 6.0 */
   background: -o-radial-gradient(#ffe7a4, #ffbf0b);
