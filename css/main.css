@@ -1,6 +1,6 @@
 html,
 body {
-  background: #777777 url(/assets/img/asfalt-light.png) top left repeat;
+  background: #777777 url(assets/img/asfalt-light.png) top left repeat;
 }
 #traffic-light {
   min-height: 80vh;
