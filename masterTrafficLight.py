@@ -131,13 +131,23 @@ class trafficLight:
 
 	def randomize(self):
 		#self.nextLight()
-		self.seed = int((random.random())*20 + 10)
+		self.seed = int((random.random())*50 + 10)
 		self.counter=0
 		#print("{}".format(self.seed))
 		while self.counter < self.seed:
 			#print("{}".format(self.counter))
 			self.nextLight()
 			time.sleep(.05)
+			self.counter = self.counter + 1
+		self.seed = self.seed + 10
+		while self.counter < self.seed:
+			self.nextLight()
+			time.sleep(.5)
+			self.counter = self.counter + 1
+		self.seed = self.seed + 4
+		while self.counter < self.seed:
+			self.nextLight()
+			time.sleep(.7)
 			self.counter = self.counter + 1
 
 
