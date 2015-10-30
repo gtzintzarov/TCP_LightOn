@@ -136,13 +136,13 @@ class trafficLight:
 		self.seed = int((random.random())*100 + 5)
 		self.counter=0
 		print("{}, {}".format(self.seed, self.counter))
-		#while self.counter<=self.seed:
-		#	self.nextLight()
-		#	time.sleep(.5)
+		while self.counter < self.seed:
+			self.nextLight()
+			time.sleep(.5)
 
 
 	def printStatus(self):
-		print ("Red: {:#d}\n".format(self.redStatus))
+		print ("Red: {:#d}".format(self.redStatus))
 		print ("Yellow: {:#d}".format(self.yellowStatus))
-		print ("Green: {:#d}".format(self.greenStatus))
+		print ("Green: {:#d}\n".format(self.greenStatus))
 		return ("{:#d} {:#d} {:#d}".format(self.greenStatus,self.yellowStatus, self.redStatus))

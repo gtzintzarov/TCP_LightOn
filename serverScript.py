@@ -144,7 +144,7 @@ try:
 		elif data == "random_set":
 			conn.sendall("Received: Randomize")
 			shireTrafficLight.randomize()
-			conn.sendall("Completed Randomize")
+			#conn.sendall("Completed Randomize")
 			shireTrafficLight.printStatus()
 
 		#elif data == "close":
