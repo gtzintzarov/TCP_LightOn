@@ -135,10 +135,10 @@ class trafficLight:
 		self.turnAllOff()
 		self.seed = int((random.random())*100 + 5)
 		self.counter=0
-		#print("{}, {}".format(self.seed, self.counter))
+		print("{}, {}".format(self.seed, self.counter))
 		while self.counter < self.seed:
 			self.nextLight()
-			time.sleep(.1)
+			time.sleep(.5)
 			self.counter = self.counter + 1
 
 
