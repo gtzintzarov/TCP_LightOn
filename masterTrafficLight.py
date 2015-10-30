@@ -131,7 +131,7 @@ class trafficLight:
 
 	def randomize(self):
 		#self.nextLight()
-		self.seed = int((random.random())*100 + 5)
+		self.seed = int((random.random())*20 + 10)
 		self.counter=0
 		print("{}".format(self.seed))
 		while self.counter < self.seed:

@@ -156,7 +156,7 @@ try:
 except KeyboardInterrupt:
 	shireTrafficLight.turnAllOff()
 	GPIO.cleanup()
-	print("Bye Bye!\n")
+	print("\n\nBye Bye!\n")
 	exit()
 	#conn.close()
 	
