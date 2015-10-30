@@ -20,7 +20,7 @@ class light:
 	def off(self):
 		GPIO.output(self.pin, GPIO.LOW)
 
-	def testSpeed(self)
+	def testSpeed(self):
 		GPIO.output(self.pin, GPIO.HIGH)
 		GPIO.output(self.pin, GPIO.LOW)
 		GPIO.output(self.pin, GPIO.HIGH)
