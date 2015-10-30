@@ -131,12 +131,13 @@ class trafficLight:
 
 	def randomize(self):
 		#self.nextLight()
-		#time.sleep(2)
+		time.sleep(2)
 		self.turnAllOff()
 		self.seed = int((random.random())*100 + 5)
 		self.counter=0
 		print("{}, {}".format(self.seed, self.counter))
 		while self.counter < self.seed:
+			print("{}".format(self.counter))
 			self.nextLight()
 			time.sleep(.5)
 			self.counter = self.counter + 1
