@@ -4,6 +4,7 @@ import RPi.GPIO as GPIO
 import trafficLights
 import SpeakerClass
 import time
+import random
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
@@ -114,6 +115,28 @@ class trafficLight:
 		self.greenOFF()
 		self.yellowOFF()
 		self.redOFF()
+
+	def nextLight(self):
+		if self.redStatus:
+			self.redOFF()
+			self.yellowON()
+		elif self.yellowStatus:
+			self.yellowOFF()
+			self.greenON()
+		elif self.greenStatus:
+			self.greenOFF()
+			self.redON()
+		else
+			self.turnAllOff()
+
+	def randomize(self):
+		self.turnAllOff()
+		seed = int((random.random())*10 + 5)
+		iii=0
+		while iii<=seed:
+			self.nextLight()
+			time.sleep(.1)
+
 
 	def printStatus(self):
 		print ("Green: {:#d}".format(self.greenStatus))
