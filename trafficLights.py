@@ -1,6 +1,7 @@
 #! /usr/bin/python
 
 import RPi.GPIO as GPIO
+import time
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
@@ -23,9 +24,12 @@ class light:
 	def testSpeed(self):
 		GPIO.output(self.pin, GPIO.HIGH)
 		GPIO.output(self.pin, GPIO.LOW)
+		time.sleep(.01)
 		GPIO.output(self.pin, GPIO.HIGH)
 		GPIO.output(self.pin, GPIO.LOW)
+		time.sleep(.01)
 		GPIO.output(self.pin, GPIO.HIGH)
 		GPIO.output(self.pin, GPIO.LOW)
+		time.sleep(.01)
 		GPIO.output(self.pin, GPIO.HIGH)
 		GPIO.output(self.pin, GPIO.LOW)
