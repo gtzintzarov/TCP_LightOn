@@ -119,27 +119,26 @@ class trafficLight:
 	def nextLight(self):
 		if self.redStatus:
 			self.redOFF()
-			self.yellowON()
+			self.yellowON(0)
 		elif self.yellowStatus:
 			self.yellowOFF()
-			self.greenON()
+			self.greenON(0)
 		elif self.greenStatus:
 			self.greenOFF()
-			self.redON()
+			self.redON(0)
 		else:
-			self.greenON()
+			self.greenON(0)
 
 	def randomize(self):
 		#self.nextLight()
 		self.seed = int((random.random())*20 + 10)
 		self.counter=0
-		self.greenLight.testSpeed()
 		#print("{}".format(self.seed))
-		#while self.counter < self.seed:
+		while self.counter < self.seed:
 			#print("{}".format(self.counter))
-			#self.nextLight()
-			#time.sleep(.05)
-			#self.counter = self.counter + 1
+			self.nextLight()
+			time.sleep(.05)
+			self.counter = self.counter + 1
 
 
 	def printStatus(self):
