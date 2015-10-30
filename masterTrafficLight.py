@@ -126,7 +126,7 @@ class trafficLight:
 		elif self.greenStatus:
 			self.greenOFF()
 			self.redON()
-		else
+		else:
 			self.turnAllOff()
 
 	def randomize(self):
