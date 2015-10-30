@@ -140,6 +140,10 @@ try:
 		elif data == "get_status":
 			conn.sendall(shireTrafficLight.printStatus())
 			#shireTrafficLight.printStatus()
+		elif data == "random_set":
+			conn.sendall("Received: Randomize")
+			shireTrafficLight.randomize()
+			shireTrafficLight.printStatus()
 
 		#elif data == "close":
 			#conn.sendall("Connection Closed")
