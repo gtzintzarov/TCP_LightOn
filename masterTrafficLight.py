@@ -133,11 +133,11 @@ class trafficLight:
 		#self.nextLight()
 		self.seed = int((random.random())*100 + 5)
 		self.counter=0
-		print("{}, {}".format(self.seed, self.counter))
+		print("{}".format(self.seed))
 		while self.counter < self.seed:
-			#print("{}".format(self.counter))
+			print("{}".format(self.counter))
 			self.nextLight()
-			time.sleep(.01)
+			time.sleep(.05)
 			self.counter = self.counter + 1
 
 
