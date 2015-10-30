@@ -137,7 +137,7 @@ class trafficLight:
 		while self.counter < self.seed:
 			#print("{}".format(self.counter))
 			self.nextLight()
-			time.sleep(.1)
+			time.sleep(.01)
 			self.counter = self.counter + 1
 
 
