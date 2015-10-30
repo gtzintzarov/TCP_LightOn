@@ -139,6 +139,7 @@ class trafficLight:
 		while self.counter < self.seed:
 			self.nextLight()
 			time.sleep(.1)
+			self.counter = self.counter + 1
 
 
 	def printStatus(self):
